@@ -77,7 +77,7 @@ export class UserService {
     userId: string,
   ): Promise<{ deleted: boolean; message?: string }> {
     try {
-      await this.userModel.remove({ userId });
+      await this.userModel.deleteOne({ userId });
       return { deleted: true };
     } catch (error) {
       return { deleted: false, message: error.message };
